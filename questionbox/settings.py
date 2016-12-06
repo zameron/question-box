@@ -26,7 +26,7 @@ SECRET_KEY = 'srsfsu1_#@$^71qq&-d_3zm)=22iqxl5=!1fhkahrs%7j+k0kf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'lit-escarpment-88574.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', 'lit-escarpment-88574.herokuapp.com', '127.0.0.1', 'fathomless-ravine-91934.herokuapp.com']
 
 
 # Application definition
