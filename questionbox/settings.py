@@ -26,7 +26,7 @@ SECRET_KEY = 'srsfsu1_#@$^71qq&-d_3zm)=22iqxl5=!1fhkahrs%7j+k0kf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'lit-escarpment-88574.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'lit-escarpment-88574.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'stack.apps.StackConfig',
+    'rest_framework',
 ]
+
+
+REST_FRAMEWORK = {
+   'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
+   'PAGE_SIZE': 10
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
