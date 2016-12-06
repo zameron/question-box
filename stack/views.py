@@ -6,7 +6,7 @@ from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer
 
 
 def index(request):
-    return HttpResponse("hello boys")
+    return render(request, 'stack.html')
 # Create your views here.
 
 
