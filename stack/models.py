@@ -14,12 +14,12 @@ class Owner(models.Model):
         return self.user.username
 
 
-
 class Question(models.Model):
     title = models.CharField(max_length=150)
     description = models.CharField(max_length=255)
     user = models.ForeignKey(User)
     votes = models.IntegerField(default=0)
+    categories = models.ManyToManyField('Tag')
     created = models.DateTimeField(default=datetime.now, blank=True)
 
 
@@ -29,3 +29,11 @@ class Answer(models.Model):
     question = models.ForeignKey(Question)
     votes = models.IntegerField(default=0)
     created = models.DateTimeField(default=datetime.now, blank=True)
+
+
+class Tag(models.Model):
+
+    topic = models.CharField(max_length=25, unique=True)
+
+    def __str__(self):
+        return self.topic

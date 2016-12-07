@@ -3,8 +3,8 @@ from django.shortcuts import render, HttpResponseRedirect
 from rest_framework import viewsets
 from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth import login
-from .models import Owner, Question, Answer
-from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer
+from .models import Owner, Question, Answer, Tag
+from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer, TagSerializer
 
 
 def index(request):
@@ -28,6 +28,11 @@ class AnswersViewSet(viewsets.ModelViewSet):
 
     queryset = Answer.objects.all().order_by('text')
     serializer_class = AnswerSerializer
+
+
+class TagsViewSet(viewsets.ModelViewSet):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
 
 
 def register(request):
