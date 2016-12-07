@@ -30,8 +30,6 @@ $.ajaxSetup({
 function questionPost(){
     var questionTitle = document.getElementById("addQuestion").value
     var questionDesc = document.getElementById("addDescription").value
-    console.log(user)
-    console.log(user_id)
     var postdata = {'title': questionTitle, 'description': questionDesc, 'votes': 0, 'created': '2016-12-06 22:49:34.415098+00'}
     jQuery.ajax({url:'/stack/questions/', data:postdata, type:'POST'
     }).done(function(){
