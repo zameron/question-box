@@ -1,7 +1,7 @@
 
 function questionPost(){
     var postdata = {'title': 'test2q', 'description': 'testDES2'}
-    jQuery.ajax({url:'/stack/questions', data:postdata, type:'POST'
+    jQuery.ajax({url:'/stack/questions/', data:postdata, type:'POST'
     }).done(function(){
         location = location
     })
