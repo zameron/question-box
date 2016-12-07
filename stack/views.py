@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, HttpResponseRedirect
+# from django.http import HttpResponse
 from rest_framework import viewsets
+from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth import login
 from .models import Owner, Question, Answer
 from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer
 
@@ -26,3 +28,15 @@ class AnswersViewSet(viewsets.ModelViewSet):
 
     queryset = Answer.objects.all().order_by('text')
     serializer_class = AnswerSerializer
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+        return HttpResponseRedirect('/stack/')
+    else:
+        form = UserCreationForm()
+        context = {'form': form}
+    return render(request, 'registration/register.html', context)
