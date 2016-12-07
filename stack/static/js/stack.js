@@ -36,6 +36,9 @@ function questionPost(){
     })
 }
 
+$("#addQ").click(questionPost)
+
+
 function questionDelete(){
  jQuery.ajax({url:'/stack/questions/4', type:'DELETE'}).done(function(){
      location = location
