@@ -3,30 +3,34 @@ from django.shortcuts import render, HttpResponseRedirect
 from rest_framework import viewsets
 from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth import login
+from django.contrib.auth.models import User
 from .models import Owner, Question, Answer, Tag
-from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer, TagSerializer
+from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer, TagSerializer, UserSerializer
 
 
 def index(request):
     return render(request, 'stack.html')
 # Create your views here.
 
+class UsersViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 class OwnersViewSet(viewsets.ModelViewSet):
 
-    queryset = Owner.objects.all().order_by('user_id')
+    queryset = Owner.objects.all()
     serializer_class = OwnerSerializer
 
 
 class QuestionsViewSet(viewsets.ModelViewSet):
 
-    queryset = Question.objects.all().order_by('title')
+    queryset = Question.objects.all().order_by('created')
     serializer_class = QuestionSerializer
 
 
 class AnswersViewSet(viewsets.ModelViewSet):
 
-    queryset = Answer.objects.all().order_by('text')
+    queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
 
 
@@ -45,6 +49,7 @@ def register(request):
         form = UserCreationForm()
         context = {'form': form}
     return render(request, 'registration/register.html', context)
+
 
 def profile_view(request):
     return render(request, 'profile.html')

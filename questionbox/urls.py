@@ -10,6 +10,9 @@ router = routers.DefaultRouter()
 router.register(r'stack/owners', views.OwnersViewSet),
 router.register(r'stack/questions', views.QuestionsViewSet),
 router.register(r'stack/answers', views.AnswersViewSet)
+router.register(r'stack/tag', views.TagsViewSet)
+
+
 
 
 
