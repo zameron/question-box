@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Owner, Question, Answer
+from .models import Owner, Question, Answer, Tag
 from django.contrib.auth.models import User
 
 
@@ -18,3 +18,8 @@ class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = ('url', 'text', 'user', 'question', 'votes', 'created')
+
+class TagSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Tag
+        fields = '__all__'
