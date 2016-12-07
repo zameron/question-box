@@ -28,7 +28,7 @@ $.ajaxSetup({
 
 
 function questionPost(){
-    var postdata = {'title': 'test2q', 'description': 'testDES2', 'votes': 0, 'created':, 'user_id':}
+    var postdata = {'title': 'test2q', 'description': 'testDES2', 'votes': 0, 'created':'', 'user_id':''}
     jQuery.ajax({url:'/stack/questions/', data:postdata, type:'POST'
     }).done(function(){
         location = location
