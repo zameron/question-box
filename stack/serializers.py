@@ -3,15 +3,23 @@ from .models import Owner, Question, Answer, Tag
 from django.contrib.auth.models import User
 
 
-class OwnerSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'owner')
 
+
+class OwnerSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Owner
+        fields = ('user', 'score')
+
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        fields = ('url', 'title', 'description', 'user', 'votes', 'created')
+        fields = ('url', 'title', 'description', 'categories', 'user', 'votes', 'created')
 
 
 class AnswerSerializer(serializers.ModelSerializer):
