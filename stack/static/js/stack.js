@@ -28,8 +28,8 @@ $.ajaxSetup({
 
 
 function questionPost(){
-    var questionTitle = document.getElementById("addTask").value
-    var questionDesc = document.getElementById("status").value
+    var questionTitle = document.getElementById("addQ").value
+    var questionDesc = document.getElementById("addD").value
     var postdata = {'title': questionTitle, 'description': questionDesc, 'votes': 0, 'created': '2016-12-06 22:49:34.415098+00', 'user':1}
     jQuery.ajax({url:'/stack/questions/', data:postdata, type:'POST'
     }).done(function(){
@@ -44,7 +44,6 @@ function questionDelete(){
      location = location
  })
 }
-questionDelete()
 
 function testQuestion(){
     var $stuff = $("<ol>")
