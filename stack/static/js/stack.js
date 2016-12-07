@@ -33,7 +33,7 @@ function questionPost(){
                     votes: 1,
                     created: '2016-12-07T21:47:14.459747',
                     user: 1,
-                    categories: 'wtf'}
+                    categories: 2}
    jQuery.ajax({url:'/stack/questions/', data:postdata, type:'POST'
    }).done(function(){   console.log(postdata)
    })
