@@ -16,6 +16,7 @@ class OwnerSerializer(serializers.ModelSerializer):
         model = Owner
         fields = ('user', 'score')
 
+
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
@@ -26,6 +27,7 @@ class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = ('url', 'text', 'user', 'question', 'votes', 'created')
+
 
 class TagSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

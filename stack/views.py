@@ -1,15 +1,15 @@
 from django.shortcuts import render, HttpResponseRedirect
-# from django.http import HttpResponse
 from rest_framework import viewsets
 from django.contrib.auth.forms import UserCreationForm
-# from django.contrib.auth import login
+from django.contrib.auth import logout
+# from django.views import View
 from django.contrib.auth.models import User
 from .models import Owner, Question, Answer, Tag
 from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer, TagSerializer, UserSerializer
 
 
 def index(request):
-    return render(request, 'stack.html')
+    return render(request, 'base.html')
 # Create your views here.
 
 class UsersViewSet(viewsets.ModelViewSet):
@@ -50,6 +50,20 @@ def register(request):
         context = {'form': form}
     return render(request, 'registration/register.html', context)
 
+
+
+# class LogoutView(View):
+#
+#     template_name = 'registration/logged_out.html'
+#
+#     def get(self, request):
+#         response = logout(request)
+#
+#         return render(response, self.logged_out.html)
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'logged_out.html')
 
 def profile_view(request):
     return render(request, 'profile.html')

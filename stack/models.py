@@ -1,10 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
-# from django.contrib.auth.models import BaseUserManager
-
 
 # Create your models here.
+
 
 class Owner(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -13,11 +12,13 @@ class Owner(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Tag(models.Model):
     topic = models.CharField(max_length=25, unique=True)
 
     def __str__(self):
         return self.topic
+
 
 class Question(models.Model):
     title = models.CharField(max_length=150)
@@ -26,6 +27,9 @@ class Question(models.Model):
     votes = models.IntegerField(default=0)
     categories = models.ManyToManyField(Tag)
     created = models.DateTimeField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Answer(models.Model):

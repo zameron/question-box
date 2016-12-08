@@ -28,6 +28,7 @@ $.ajaxSetup({
 
 
 function questionPost(){
+<<<<<<< HEAD
     var title = $("#addQuestion").val()
     var description = $("#addDescription").val()
     var user_id = $("#user_id").val()
@@ -57,7 +58,7 @@ function testQuestion(){
    jQuery.ajax("/stack/questions/").done(function(results){
        var questionStuff = results.results
        for(var i = 0; i < questionStuff.length; i++){
-           $stuff.html($stuff.html()+ questionStuff[i]['title'] + "<br>")
+           $stuff.html($stuff.html()+ questionStuff[i]['title'] + "<br>" + questionStuff[i]['description'] + "<br>" + ['votes'])
            $("#test").append($stuff)
        }
    })
