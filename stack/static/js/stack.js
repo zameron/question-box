@@ -28,17 +28,22 @@ $.ajaxSetup({
 
 
 function questionPost(){
-   var postdata = {title: 'hfhdfh',
-                   description: 'ththtd',
+    var title = $("#addQuestion").val()
+    var description = $("#addDescription").val()
+    var user_id = $("#user_id").val()
+    var created = new Date().toISOString();
+
+    console.log(created)
+   var postdata = {title: title,
+                   description: description,
                     votes: 1,
-                    created: '2016-12-07T21:47:14.459747',
-                    user: 1,
+                    created: created,
+                    user: user_id,
                     categories: 2}
    jQuery.ajax({url:'/stack/questions/', data:postdata, type:'POST'
-   }).done(function(){   console.log(postdata)
+   }).done(function(){
    })
 }
-
 $("#addQ").click(questionPost)
 
 
@@ -51,7 +56,6 @@ function testQuestion(){
    var $stuff = $("<ol>")
    jQuery.ajax("/stack/questions/").done(function(results){
        var questionStuff = results.results
-       console.log(results.results)
        for(var i = 0; i < questionStuff.length; i++){
            $stuff.html($stuff.html()+ questionStuff[i]['title'] + "<br>")
            $("#test").append($stuff)
