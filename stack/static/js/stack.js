@@ -28,7 +28,7 @@ $.ajaxSetup({
 
 
 function questionPost(){
-   var postdata = {title: 'hfhdfh',
+   var postdata = {title: 'title',
                    description: 'ththtd',
                     votes: 1,
                     created: '2016-12-07T21:47:14.459747',
@@ -54,7 +54,7 @@ function testQuestion(){
        var questionStuff = results.results
        console.log(results.results)
        for(var i = 0; i < questionStuff.length; i++){
-           $stuff.html($stuff.html()+ questionStuff[i]['title'] + "<br>")
+           $stuff.html($stuff.html()+ questionStuff[i]['title'] + "<br>" + questionStuff[i]['description'] + "<br>" + ['votes'])
            $("#test").append($stuff)
        }
    })
