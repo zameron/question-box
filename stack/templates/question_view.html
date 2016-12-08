@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+{% block content %}
+<head> <title>question detail page</title></head>
+<body>
+   <br><br><br>
+   <h1> question's Details</h1>
+   {{ user.username }}
+   <h2>QUESTION:</h2>{{ question}}
+   <h4>Description:</h4>{{ question.description }}
+   <h4>Votes:</h4>{{ question.votes }}
+   <h4>Asked by:</h4>{{ question.user_id }}
+
+
+   <h2> username: {{ user.username }}</h2>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+   crossorigin="anonymous"></script>
+   <script type="text/javascript" src="{% static 'js/question_view.js' %}"></script>
+</body>
+{%endblock%}
+</html>

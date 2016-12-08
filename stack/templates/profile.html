@@ -1,11 +1,36 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
+ {% extends 'base.html' %}
+{% load static %}
+ <html>
+    <head>
+       <meta charset="utf-8">
+       <title>Handlebars</title>
+   </head>
+   <body>
+       {% block content %}
+        <!-- {% if request.user.is_authenticated %} -->
+           <br><br><br>
+           <h2>Hello {{user.username}},</h2>
+           <main>
+           {% verbatim %}
+           <script id="post-template" type="text/x-handlebars-template">
+                {{#each this}}
+                <article class="post-container">
+                <header id='main'>
+                    {{{displayLink this}}}
+                </header>
+                </article>
+                {{/each}}
+            </script>
+              {% endverbatim %}
+          </main>
+         <!-- {% endif %} -->
 
-{% block content %}
 
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
 
-Profile page
-
-
-
-{% endblock %}
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+       {% endblock %}
+   </body>
+</html>

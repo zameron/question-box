@@ -28,12 +28,10 @@ $.ajaxSetup({
 
 
 function questionPost(){
-<<<<<<< HEAD
     var title = $("#addQuestion").val()
     var description = $("#addDescription").val()
     var user_id = $("#user_id").val()
     var created = new Date().toISOString();
-
     console.log(created)
    var postdata = {title: title,
                    description: description,
@@ -55,10 +53,10 @@ jQuery.ajax({url:'/stack/questions/4', type:'DELETE'}).done(function(){
 
 function testQuestion(){
    var $stuff = $("<ol>")
-   jQuery.ajax("/stack/questions/").done(function(results){
+   jQuery.ajax("/api/questions/").done(function(results){
        var questionStuff = results.results
        for(var i = 0; i < questionStuff.length; i++){
-           $stuff.html($stuff.html()+ questionStuff[i]['title'] + "<br>" + questionStuff[i]['description'] + "<br>" + ['votes'])
+           $stuff.html($stuff.html()+ questionStuff[i]['title'] + "<br>" + questionStuff[i]['description'] + "<br>")
            $("#test").append($stuff)
        }
    })

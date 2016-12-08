@@ -43,23 +43,7 @@
     {{content}}
       {% endblock %}
 
-      {% if request.user.is_authenticated %}
-
-          <form>
-              <br><br><br><br>
-              <p>q title:</p>
-              <input type="text" id="addQuestion" name="addQuestion"><br>
-          </form>
-          <form>
-              <p>q descr:</p>
-              <input type="text" id="addDescription" name="vehicle"><br>
-          </form>
-          <button id="addQ">Add q</button>
-          <div id="test"></div>
-
-        <input id="user_id" value='{{user.id}}'>
-          {% endif %}
-
+      
 
 
 

@@ -43,7 +43,7 @@ def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            new_user = form.save()
+            form.save()
         return HttpResponseRedirect('/stack/')
     else:
         form = UserCreationForm()
@@ -51,19 +51,15 @@ def register(request):
     return render(request, 'registration/register.html', context)
 
 
-
-# class LogoutView(View):
-#
-#     template_name = 'registration/logged_out.html'
-#
-#     def get(self, request):
-#         response = logout(request)
-#
-#         return render(response, self.logged_out.html)
-
 def logout_view(request):
     logout(request)
     return render(request, 'logged_out.html')
 
+
 def profile_view(request):
     return render(request, 'profile.html')
+
+
+def question_view(request, var):
+    question = Question.objects.get(pk=var)
+    return render(request, 'question_view.html', {'question': question})
