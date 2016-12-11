@@ -52,7 +52,7 @@ function questionPost(){
                     votes: 1,
                     created: created,
                     user: user_id,
-                    categories: 2}
+                    categories: 1}
    jQuery.ajax({url:'/api/questions/', data:postdata, type:'POST'
    }).done(function(){
        location = location
