@@ -1,11 +1,42 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load static %}
 
-{% block content %}
+        {% block styleblock %}
+        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+        {% endblock %}
+
+            {% block content %}
+                    <br><br><br>
+                {% if request.user.is_authenticated %}
+                <h2>{{user.username}}'s Profile Page</h2>
+        <table>
+            <tr>
+            <td>
+            <form>
 
 
-Profile page
+                <h3>ASK A NEW QUESTION</h3>
+                <p>question:</p>
+                <input type="text" id="addQuestion"><br>
+            </form>
+            <form>
+                <p>question description:</p>
+                <input type="text" id="addDescription"><br>
+            </form>
+            <button id="addQ">Add Question</button><br><br>
+            <td><div id='goober'></div></td>
+        </td>
+            <td><h4>QUESTIONS YOU'VE ASKED</h4>
+            <div id="questionsAsked"></div>
+        </td>
+        </tr>
+        </table>
+          <input id="user_id" type='hidden' value='{{user.id}}'>
+            {% endif %}
 
-
-
-{% endblock %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+        {% endblock %}

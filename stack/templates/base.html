@@ -4,7 +4,13 @@
     <head>
         <meta charset="utf-8">
         <title>Stack</title>
+
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+        {% block styleblock %}{% endblock %}
+
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -40,33 +46,17 @@
           </nav>
 
     {% block content %}
-    {{content}}
+        {{content}}
       {% endblock %}
 
-      {% if request.user.is_authenticated %}
-
-          <form>
-              <br><br><br><br>
-              <p>q title:</p>
-              <input type="text" id="addQuestion" name="addQuestion"><br>
-          </form>
-          <form>
-              <p>q descr:</p>
-              <input type="text" id="addDescription" name="vehicle"><br>
-          </form>
-          <button id="addQ">Add q</button>
-          <div id="test"></div>
-
-        <input id="user_id" value='{{user.id}}'>
-          {% endif %}
+      <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
-
-        <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
         <script type="text/javascript" src="{% static 'js/stack.js' %}"></script>
     </body>
 </html>

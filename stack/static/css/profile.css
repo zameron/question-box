@@ -1,0 +1,37 @@
+#questionsAsked{
+}
+
+#goober{
+    width: 300px;
+}
+
+button{
+    float: right;
+    font-size: 14px;
+    text-align: right;
+    padding: 2px 5px;
+
+}
+button:hover {
+    background-color: red;
+}
+
+a {
+    color: #413442;
+    font-size: 20px;
+    float: center;
+}
+
+#addQ{
+    float: left;
+    border-radius: 25px;
+    background-color: #83e266; /* Green */
+    border: none;
+    color: black;
+    margin-top: 30px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+}

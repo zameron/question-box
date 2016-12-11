@@ -9,7 +9,8 @@ from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer, 
 
 
 def index(request):
-    return render(request, 'base.html')
+    question = Question.objects.all()
+    return render(request, 'question_list.html', {'question': question})
 # Create your views here.
 
 class UsersViewSet(viewsets.ModelViewSet):
@@ -30,7 +31,7 @@ class QuestionsViewSet(viewsets.ModelViewSet):
 
 class AnswersViewSet(viewsets.ModelViewSet):
 
-    queryset = Answer.objects.all()
+    queryset = Answer.objects.all().order_by('-votes')
     serializer_class = AnswerSerializer
 
 
@@ -50,16 +51,9 @@ def register(request):
         context = {'form': form}
     return render(request, 'registration/register.html', context)
 
-
-
-# class LogoutView(View):
-#
-#     template_name = 'registration/logged_out.html'
-#
-#     def get(self, request):
-#         response = logout(request)
-#
-#         return render(response, self.logged_out.html)
+def question_view(request, var):
+    question = Question.objects.get(pk=var)
+    return render(request, 'question_view.html', {'question': question})
 
 def logout_view(request):
     logout(request)

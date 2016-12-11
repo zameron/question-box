@@ -20,13 +20,14 @@ class OwnerSerializer(serializers.ModelSerializer):
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
-        fields = ('url', 'title', 'description', 'categories', 'user', 'votes', 'created')
+        fields = ('url', 'title', 'description', 'categories', 'user', 'votes', 'created', 'id')
 
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = ('url', 'text', 'user', 'question', 'votes', 'created')
+        ordering = ['votes']
 
 
 class TagSerializer(serializers.HyperlinkedModelSerializer):

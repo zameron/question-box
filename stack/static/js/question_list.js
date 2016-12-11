@@ -25,16 +25,3 @@ $.ajaxSetup({
        }
    }
 });
-
-function testQuestion(){
-   var $stuff = $("<ol>")
-   jQuery.ajax("/api/questions/").done(function(results){
-       var questionStuff = results.results
-       for(var i = 0; i < questionStuff.length; i++){
-           var address = 'http://0.0.0.0:5000/stack/questions/' + questionStuff[i]['id']
-           $stuff.html($stuff.html()+ "<a href='" + address + "'>" + questionStuff[i]['title'] + "</a><br>" + '<ul><li>' + questionStuff[i]['description'] + "</li></ul>")
-       }
-       $("#allQuestions").append($stuff)
-   })
-}
-testQuestion()
