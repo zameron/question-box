@@ -32,8 +32,7 @@ function getQuestions(){
         var template = Handlebars.compile(source);
         var html = template(questions.results);
         $('main').append(html);
-        console.log(source)
-
+        console.log(questions)
     })
 }
 var context = getQuestions()
@@ -46,19 +45,21 @@ Handlebars.registerHelper('displayLink', function(id, title, url) {
    return '<a href="' + '/stack' + '/' + datatype + '/' + this.id + '">' + this.title + '</a>';
 });
 
-//
-//
-// function getQuestions(){
-//    var $stuff = $("<ol>")
-//    jQuery.ajax("/api/questions/").done(function(results){
-//    var questionStuff = results.results
-//    console.log(results.results)
-//    for(var i = 0; i < questionStuff.length; i++){
-//        if(questionStuff[i].user == $("#user_id").val()){
-//        $stuff.html($stuff.html()+ questionStuff[i]['title'] + "<br>")
-//    }
-//    $("#test").append($stuff)
-//    }
-// })
-// }
-// getQuestions()
+
+function questionPost(){
+   var title = $("#addQuestion").val()
+   var description = $("#addDescription").val()
+   var user_id = $("#user_id").val()
+   var created = new Date().toISOString();
+   console.log(created)
+  var postdata = {title: title,
+                  description: description,
+                   votes: 1,
+                   created: created,
+                   user: user_id,
+                   categories: }
+  jQuery.ajax({url:'/api/questions/', data:postdata, type:'POST'
+  }).done(function(){
+  })
+}
+$("#addQ").click(questionPost)

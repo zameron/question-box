@@ -8,9 +8,11 @@ from .models import Owner, Question, Answer, Tag
 from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer, TagSerializer, UserSerializer
 
 
+
+
 def index(request):
-    return render(request, 'base.html')
-# Create your views here.
+    question = Question.objects.all()
+    return render(request, 'question_list.html', {'question': question})
 
 class UsersViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -24,7 +26,7 @@ class OwnersViewSet(viewsets.ModelViewSet):
 
 class QuestionsViewSet(viewsets.ModelViewSet):
 
-    queryset = Question.objects.all().order_by('created')
+    queryset = Question.objects.all()
     serializer_class = QuestionSerializer
 
 
@@ -63,3 +65,8 @@ def profile_view(request):
 def question_view(request, var):
     question = Question.objects.get(pk=var)
     return render(request, 'question_view.html', {'question': question})
+
+
+def question_list_view(request):
+    question = Question.objects.all()
+    return render(request, 'question_list.html', {'question': question})

@@ -25,7 +25,7 @@ class Question(models.Model):
     description = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     votes = models.IntegerField(default=0)
-    categories = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag)
     created = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
@@ -35,6 +35,9 @@ class Question(models.Model):
 class Answer(models.Model):
     text = models.CharField(max_length=255)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answers')
     votes = models.IntegerField(default=0)
     created = models.DateTimeField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return self.text

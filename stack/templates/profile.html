@@ -1,36 +1,52 @@
  {% extends 'base.html' %}
 {% load static %}
- <html>
-    <head>
-       <meta charset="utf-8">
-       <title>Handlebars</title>
-   </head>
-   <body>
-       {% block content %}
-        <!-- {% if request.user.is_authenticated %} -->
-           <br><br><br>
-           <h2>Hello {{user.username}},</h2>
-           <main>
-           {% verbatim %}
-           <script id="post-template" type="text/x-handlebars-template">
-                {{#each this}}
-                <article class="post-container">
-                <header id='main'>
-                    {{{displayLink this}}}
-                </header>
-                </article>
-                {{/each}}
-            </script>
-              {% endverbatim %}
-          </main>
-         <!-- {% endif %} -->
 
 
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+{% block content %}
+   <br><br><br>
+   <h2>Hello {{user.username}},</h2>
+   <main>
+   {% verbatim %}
+   <script id="post-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <article class="post-container">
+        <header id='main'>
+            <h4>{{{displayLink this}}}</h4>
+            <h5>description: {{this.description}}</h5><br>
+            <h5> Date posted: {{this.created}} </h5>
+            {{#each this.tags as |tag|}}
+            <h5>category: {{tag.topic}}</h5>
+            {{/each}}
+            <h5> user: {{user.username}} </h5><br>
 
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-       <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
-       {% endblock %}
-   </body>
-</html>
+        </header>
+        </article>
+        {{/each}}
+    </script>
+      {% endverbatim %}
+  </main>
+
+
+
+
+ <form>
+            <br><br><br><br>
+            <h2>ASK A NEW QUESTION</h2>
+            <p>question title:</p>
+            <input type="text" id="addQuestion" name="addQuestion"><br>
+        </form>
+        <form>
+            <p>question descr:</p>
+            <input type="text" id="addDescription" name="addDescription"><br>
+        </form>
+        <button id="addQ">Add q</button><br><br>
+        <input id="user_id" value='{{user.id}}'>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+{% endblock %}

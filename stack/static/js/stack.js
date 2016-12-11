@@ -39,7 +39,7 @@ function questionPost(){
                     created: created,
                     user: user_id,
                     categories: 2}
-   jQuery.ajax({url:'/stack/questions/', data:postdata, type:'POST'
+   jQuery.ajax({url:'/api/questions/', data:postdata, type:'POST'
    }).done(function(){
    })
 }
@@ -47,18 +47,6 @@ $("#addQ").click(questionPost)
 
 
 function questionDelete(){
-jQuery.ajax({url:'/stack/questions/4', type:'DELETE'}).done(function(){
+jQuery.ajax({url:'/api/questions/4', type:'DELETE'}).done(function(){
 })
 }
-
-function testQuestion(){
-   var $stuff = $("<ol>")
-   jQuery.ajax("/api/questions/").done(function(results){
-       var questionStuff = results.results
-       for(var i = 0; i < questionStuff.length; i++){
-           $stuff.html($stuff.html()+ questionStuff[i]['title'] + "<br>" + questionStuff[i]['description'] + "<br>")
-           $("#test").append($stuff)
-       }
-   })
-}
-testQuestion()

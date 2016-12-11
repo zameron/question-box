@@ -1,25 +1,41 @@
+
 {% extends 'base.html' %}
 {% load static %}
-<html>
 {% block content %}
-<head> <title>question detail page</title></head>
-<body>
-   <br><br><br>
-   <h1> question's Details</h1>
-   {{ user.username }}
-   <h2>QUESTION:</h2>{{ question}}
-   <h4>Description:</h4>{{ question.description }}
-   <h4>Votes:</h4>{{ question.votes }}
-   <h4>Asked by:</h4>{{ question.user_id }}
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12">
+               <div id="questDetail"></div>
+           </div>
+       </div>
 
+       <div class="row">
+           <div class="col-md-12">
+               <div id="answerDetail"></div>
+           </div>
+       </div>
+   </div>
 
-   <h2> username: {{ user.username }}</h2>
+   <script id="post-template" type="text/x-handlebars-template">
+       <article class="post-container">
+           {% verbatim %}
+               <h3 id="questTitle">{{title}}</h3>
+               <h6 id="questDate">Date Posted: {{{formatTime created}}}</h6>
+               <p id="questText">{{text}}</p>
+           {% endverbatim %}
+       </article>
+   </script>
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-   crossorigin="anonymous"></script>
-   <script type="text/javascript" src="{% static 'js/question_view.js' %}"></script>
-</body>
-{%endblock%}
-</html>
+   <script id="post-template-two" type="text/x-handlebars-template">
+       <article class="post-container-two">
+           {% verbatim %}
+               {{#each this}}
+               <h3 id="answerText">{{this.this.text}}</h3>
+               <h6 id="answerDate">Date Posted: {{{formatTime created}}}</h6>
+               <p id="answerCreator">{{ creator.username}}</p>
+               {{/each}}
+           {% endverbatim %}
+       </article>
+   </script>
+
+{% endblock %}
