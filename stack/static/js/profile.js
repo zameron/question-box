@@ -33,7 +33,7 @@ function getQuestions(){
     var questionStuff = results.results
     for(var i = 0; i < questionStuff.length; i++){
         if(questionStuff[i].user == $("#user_id").val()){
-        var address = 'https://lit-escarpment-88574.herokuapp.com/stack/questions/' + questionStuff[i]['id']
+        var address = '/stack/questions/' + questionStuff[i]['id']
         $stuff.html($stuff.html()+ "<a href='" + address + "'>" + questionStuff[i]['title'] + "</a><button id='" + "delete" + questionStuff[i]['id'] + "' onClick='delete_click(this.id)'>delete</button><br>" + '<ul><li>' + questionStuff[i]['description'] + "</li></ul>")
     }
     $("#questionsAsked").append($stuff)

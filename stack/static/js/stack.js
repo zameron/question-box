@@ -31,7 +31,7 @@ function testQuestion(){
    jQuery.ajax("/api/questions/").done(function(results){
        var questionStuff = results.results
        for(var i = 0; i < questionStuff.length; i++){
-           var address = 'https://lit-escarpment-88574.herokuapp.com/stack/questions/' + questionStuff[i]['id']
+           var address = '/stack/questions/' + questionStuff[i]['id']
            $stuff.html($stuff.html()+ "<a href='" + address + "'>" + questionStuff[i]['title'] + "</a><br>" + '<ul><li>' + questionStuff[i]['description'] + "</li></ul>")
        }
        $("#allQuestions").append($stuff)
