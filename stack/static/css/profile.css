@@ -1,12 +1,46 @@
 #questionsAsked{
+    width: 500px;
 }
 
-#goober{
-    width: 300px;
+#questiondiv{
+    border-bottom: 1px solid black;
+
+}
+
+#answersdiv{
+    border-bottom: 1px solid black;
+
+}
+
+button.deleteClass{
+    float:right;
+}
+
+
+
+#answersGiven{
+    width: 400px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+td.profilestuff{
+    padding-left: 0px;
+    padding-right: 0px;}
+
+td.somethingUnique{
+    padding-right: 200px;
+    padding-left: 50px;
+}
+
+td{
+    padding-left: 50px;
+    padding-right: 50px;
+
+    vertical-align: top;
 }
 
 button{
-    float: right;
     font-size: 14px;
     text-align: right;
     padding: 2px 5px;
@@ -34,4 +68,15 @@ a {
     text-decoration: none;
     display: inline-block;
     font-size: 32px;
+}
+
+img.brad{
+    width: 30%;
+    height: 30%;
+    border-radius: 10%;
+}
+
+.jumbotron{
+
+    border-radius: 30px;
 }

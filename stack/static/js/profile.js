@@ -34,13 +34,28 @@ function getQuestions(){
     for(var i = 0; i < questionStuff.length; i++){
         if(questionStuff[i].user == $("#user_id").val()){
         var address = '/stack/questions/' + questionStuff[i]['id']
-        $stuff.html($stuff.html()+ "<a href='" + address + "'>" + questionStuff[i]['title'] + "</a><button id='" + "delete" + questionStuff[i]['id'] + "' onClick='delete_click(this.id)'>delete</button><br>" + '<ul><li>' + questionStuff[i]['description'] + "</li></ul>")
+        $stuff.html($stuff.html()+ "<div id='questiondiv'><a href='" + address + "'>" + questionStuff[i]['title'] + "</a><button class='deleteClass' id='" + "delete" + questionStuff[i]['id'] + "' onClick='delete_click(this.id)'>delete</button><br>" + '<ul><li>' + questionStuff[i]['description'] + "</li></ul></div>  <br>")
     }
     $("#questionsAsked").append($stuff)
     }
 })
 }
 getQuestions()
+
+function getAnswers(){
+    var $stuff = $("<ol>")
+    jQuery.ajax("/api/answers/").done(function(results){
+    var answerStuff = results.results
+    for(var i = 0; i < answerStuff.length; i++){
+        if(answerStuff[i].user == $("#user_id").val()){
+        var address = '/stack/questions/' + answerStuff[i].question
+        $stuff.html($stuff.html()+ "<div id='answersdiv'><a href='" + address + "'>"  + '<ul><li>' + answerStuff[i]['text'] + "</a>" + "</li></ul></div><br>")
+    }
+    $("#answersGiven").append($stuff)
+    }
+})
+}
+getAnswers()
 
 function questionPost(){
     var title = $("#addQuestion").val()

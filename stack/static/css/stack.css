@@ -1,10 +1,14 @@
-a {
+a{
     color: #413442;
     font-size: 16px;
     float: center;
 }
 
-#allQuestions{
-    position: absolute;
-    left: 400px;
+h2{
+    text-align: center;
+}
+
+.jumbotron{
+    border-radius: 20px;
+    background-color: #a4f4dc;
 }

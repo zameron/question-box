@@ -6,31 +6,57 @@
         {% endblock %}
 
             {% block content %}
-                    <br><br><br>
+
+
+                    <br><br><br><br><br>
                 {% if request.user.is_authenticated %}
-                <h2>{{user.username}}'s Profile Page</h2>
+
+        <div class="jumbotron">
+            <table class="profile">
+                <tr><td class="profilestuff">
+                    <h3>{{user.username}}'s Profile Page</h3>
+                    <img class="brad" src="http://horrormoviefilms.com/wp-content/uploads/2014/01/brad-pitt-burn-after-reading-death.jpg" alt="">
+                    </td>
+                <td class="somethingUnique">
+                    <h4>First name: {{user.firstname}}</h4>
+                    <h4>Last name: {{user.lastname}}</h4>
+                    <h4>Email: {{user.email}}</h4>
+                    <h4>Join date: {{user.date_joined}}</h4>
+                    <h4>Last login: {{user.last_login}}</h4>
+                </td>
+            </tr>
+            </table>
+
+        </div>
+
         <table>
             <tr>
-            <td>
-            <form>
-
-
-                <h3>ASK A NEW QUESTION</h3>
-                <p>question:</p>
-                <input type="text" id="addQuestion"><br>
-            </form>
-            <form>
-                <p>question description:</p>
-                <input type="text" id="addDescription"><br>
-            </form>
-            <button id="addQ">Add Question</button><br><br>
-            <td><div id='goober'></div></td>
-        </td>
-            <td><h4>QUESTIONS YOU'VE ASKED</h4>
+                <td>
+        <h4>QUESTIONS YOU'VE ASKED</h4>
             <div id="questionsAsked"></div>
-        </td>
+                </td>
+                <td><h4> ANSWERS YOU'VE GIVEN</h4>
+                <div id="answersGiven"></div>
+                </td>
+
+
+
         </tr>
         </table>
+
+
+
+
+        <form>
+            <h3>ASK A NEW QUESTION</h3>
+            <p>question:</p>
+            <input type="text" id="addQuestion"><br>
+        </form>
+        <form>
+            <p>question description:</p>
+            <input type="text" id="addDescription"><br>
+        </form>
+        <button id="addQ">Add Question</button><br><br>
           <input id="user_id" type='hidden' value='{{user.id}}'>
             {% endif %}
 

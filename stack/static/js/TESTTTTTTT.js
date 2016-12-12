@@ -32,3 +32,12 @@ function taskDeletes(urlDel){
         </div>
     </div>
 </div>
+
+
+
+#allQuestions{
+    position: absolute;
+    left: 400px;
+}
+
+$stuff.html($stuff.html()+ "<a href='" + address + "'>" + questionStuff[i]['title'] + "</a><br>" + '<ul><li>' + questionStuff[i]['description'] + "</li></ul>")

@@ -7,8 +7,7 @@
 
 {% block content %}
 
-    <table>
-        <tr><td>
+
     <br><br><br>
     <h2>Question:</h2><h3>{{ question }}</h3>
     <br>
@@ -18,18 +17,16 @@
     <h4>Asked by:</h4>{{ question.user_id }}
     <h4>Categories: </h4><div id="tags"></div>
     <br><br>
+
+
+
+    <div id="answers"><h2>Answers: </h2></div>
     <form>
         <h2>Answer Question</h2>
         <br>
-        <input type="text" id="addAnswer" name="addAnswer"><br>
+        <textarea id="addAnswer" name="addAnswer"></textarea><br>
     </form>
     <button id="addA">Add answer</button>
-</td><td><div id='goober'></div></td>
-    <td>
-    <div id="answers"><h2>Answers: </h2></div>
-</td>
-    </tr>
-    </table>
     <input id="qid" type='hidden' value="{{question.id}}">
     <input id="tid" type='hidden' value="{{question}}">
     <input id="user_id" type='hidden' value='{{user.id}}'>

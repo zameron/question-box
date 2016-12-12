@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny',),
-   'PAGE_SIZE': 1000
+   'PAGE_SIZE': 100
 }
 
 

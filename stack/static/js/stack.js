@@ -27,12 +27,15 @@ $.ajaxSetup({
 });
 
 function testQuestion(){
-   var $stuff = $("<ol>")
+   var $stuff = $("<p>")
    jQuery.ajax("/api/questions/").done(function(results){
        var questionStuff = results.results
        for(var i = 0; i < questionStuff.length; i++){
            var address = '/stack/questions/' + questionStuff[i]['id']
-           $stuff.html($stuff.html()+ "<a href='" + address + "'>" + questionStuff[i]['title'] + "</a><br>" + '<ul><li>' + questionStuff[i]['description'] + "</li></ul>")
+           $stuff.html($stuff.html()+ "<div class='panel panel-default'><a href='" +
+                                    address + "'>" + questionStuff[i]['title'] +
+                                    "</a><br>" + questionStuff[i]['description'] + "<br>"+
+                                    questionStuff[i]['created'].substring(0, 10) + "<div>")
        }
        $("#allQuestions").append($stuff)
    })

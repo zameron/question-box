@@ -8,27 +8,34 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
-
+        <link rel='icon' href='http://asset.zcache.com/assets/graphics/z4/uniquePages/zLogoDownload/logos/circleZ_black.png' type='image/png'/>
         {% block styleblock %}{% endblock %}
 
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
+
             <div class="container-fluid">
+
               <div class="navbar-header">
+
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                   <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
+                  <span class="icon-bar">
+                  </span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
+
                 <a class="navbar-brand" href=""></a>
               </div>
 
               <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
                   {% if request.user.is_authenticated %}
-                  <p class="navbar-text navbar-right">Signed in as <a href="" class="navbar-link">{{request.user.username}}</a></p>
+                  <p class="navbar-text navbar-right">Signed in as <a href="{% url 'user_profile' %}" class="navbar-link">{{request.user.username}}</a></p>
                   {% endif %}
+                  <a href="{% url 'index' %}"><img src='http://asset.zcache.com/assets/graphics/z4/uniquePages/zLogoDownload/logos/circleZ_black.png'></a>
+
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="{% url 'index' %}">Home</a></li>
                   {% if request.user.is_anonymous %}
