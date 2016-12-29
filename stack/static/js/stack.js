@@ -26,7 +26,6 @@ $.ajaxSetup({
    }
 });
 
-<<<<<<< HEAD
 function testQuestion(){
    var $stuff = $("<p>")
    jQuery.ajax("/api/questions/").done(function(results){
@@ -42,7 +41,6 @@ function testQuestion(){
    })
 }
 testQuestion()
-=======
 
 function questionPost(){
     var title = $("#addQuestion").val()
@@ -67,4 +65,3 @@ function questionDelete(){
 jQuery.ajax({url:'/api/questions/4', type:'DELETE'}).done(function(){
 })
 }
->>>>>>> 85802a057d07de45f031082993383766bf6070eb

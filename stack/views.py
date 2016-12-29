@@ -13,10 +13,7 @@ from .serializers import OwnerSerializer, QuestionSerializer, AnswerSerializer, 
 def index(request):
     question = Question.objects.all()
     return render(request, 'question_list.html', {'question': question})
-<<<<<<< HEAD
-# Create your views here.
-=======
->>>>>>> 85802a057d07de45f031082993383766bf6070eb
+
 
 class UsersViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -30,11 +27,7 @@ class OwnersViewSet(viewsets.ModelViewSet):
 
 class QuestionsViewSet(viewsets.ModelViewSet):
 
-<<<<<<< HEAD
     queryset = Question.objects.all().order_by('-created')
-=======
-    queryset = Question.objects.all()
->>>>>>> 85802a057d07de45f031082993383766bf6070eb
     serializer_class = QuestionSerializer
 
 
@@ -60,12 +53,6 @@ def register(request):
         context = {'form': form}
     return render(request, 'registration/register.html', context)
 
-<<<<<<< HEAD
-def question_view(request, var):
-    question = Question.objects.get(pk=var)
-    return render(request, 'question_view.html', {'question': question})
-=======
->>>>>>> 85802a057d07de45f031082993383766bf6070eb
 
 def logout_view(request):
     logout(request)
