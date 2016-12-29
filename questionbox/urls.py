@@ -4,7 +4,6 @@ from rest_framework import routers
 from stack import views
 from django.contrib.auth import views as auth_views
 import stack
-# from stack.views import LogoutView
 
 
 router = routers.DefaultRouter()

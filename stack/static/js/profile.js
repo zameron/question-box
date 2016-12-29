@@ -24,6 +24,7 @@ $.ajaxSetup({
            xhr.setRequestHeader("X-CSRFToken", csrftoken);
        }
    }
+<<<<<<< HEAD
 })
 
 
@@ -82,3 +83,44 @@ function delete_click(clicked_id){
         location = location
     })
 }
+=======
+});
+
+function getQuestions(){
+    $.getJSON('/api/questions/', function (questions){
+        var source = $('#post-template').html();
+        var template = Handlebars.compile(source);
+        var html = template(questions.results);
+        $('main').append(html);
+        console.log(questions)
+    })
+}
+var context = getQuestions()
+
+Handlebars.registerHelper('displayLink', function(id, title, url) {
+ title = Handlebars.Utils.escapeExpression(title);
+ id  = Handlebars.Utils.escapeExpression(id);
+ datatype = this.url.split('/');
+ datatype = datatype[datatype.length-3]
+   return '<a href="' + '/stack' + '/' + datatype + '/' + this.id + '">' + this.title + '</a>';
+});
+
+
+function questionPost(){
+   var title = $("#addQuestion").val()
+   var description = $("#addDescription").val()
+   var user_id = $("#user_id").val()
+   var created = new Date().toISOString();
+   console.log(created)
+  var postdata = {title: title,
+                  description: description,
+                   votes: 1,
+                   created: created,
+                   user: user_id,
+                   categories: }
+  jQuery.ajax({url:'/api/questions/', data:postdata, type:'POST'
+  }).done(function(){
+  })
+}
+$("#addQ").click(questionPost)
+>>>>>>> 85802a057d07de45f031082993383766bf6070eb

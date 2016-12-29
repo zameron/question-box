@@ -26,6 +26,7 @@ $.ajaxSetup({
    }
 });
 
+<<<<<<< HEAD
 function testQuestion(){
    var $stuff = $("<p>")
    jQuery.ajax("/api/questions/").done(function(results){
@@ -41,3 +42,29 @@ function testQuestion(){
    })
 }
 testQuestion()
+=======
+
+function questionPost(){
+    var title = $("#addQuestion").val()
+    var description = $("#addDescription").val()
+    var user_id = $("#user_id").val()
+    var created = new Date().toISOString();
+    console.log(created)
+   var postdata = {title: title,
+                   description: description,
+                    votes: 1,
+                    created: created,
+                    user: user_id,
+                    categories: 2}
+   jQuery.ajax({url:'/api/questions/', data:postdata, type:'POST'
+   }).done(function(){
+   })
+}
+$("#addQ").click(questionPost)
+
+
+function questionDelete(){
+jQuery.ajax({url:'/api/questions/4', type:'DELETE'}).done(function(){
+})
+}
+>>>>>>> 85802a057d07de45f031082993383766bf6070eb

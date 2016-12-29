@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<<<<<<< HEAD
 {% block styleblock %}
 <link rel="stylesheet" href="{% static 'css/stack.css' %}">
 {% endblock %}
@@ -20,11 +21,38 @@
  <div class="panel-body" >
  </div>
 </div>
+=======
+
+
+{% block content %}
+  <br><br><br>
+  <main>
+  {% verbatim %}
+  <script id="post-template" type="text/x-handlebars-template">
+       {{#each this}}
+       <article class="post-container">
+       <header id='main'>
+           <h4>{{{displayLink this}}}</h4><br>
+           <h5>{{this.description}}</h5><br>
+           <h5> Date posted: {{this.created}} </h5><br>
+           {{#each this.tags as |tag|}}
+           category: {{tag.topic}}<br>
+           {{/each}}
+
+       </header>
+       </article>
+       {{/each}}
+   </script>
+     {% endverbatim %}
+ </main>
+
+>>>>>>> 85802a057d07de45f031082993383766bf6070eb
 
 
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<<<<<<< HEAD
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 crossorigin="anonymous"></script>
@@ -32,3 +60,10 @@ crossorigin="anonymous"></script>
 
 
 {% endblock %}
+=======
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+
+<script type="text/javascript" src="{% static 'js/question_list.js' %}"></script>
+
+{%endblock%}
+>>>>>>> 85802a057d07de45f031082993383766bf6070eb
